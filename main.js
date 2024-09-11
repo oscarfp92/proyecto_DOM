@@ -112,3 +112,71 @@ const products = [
     image: 'assets/images/toy_ronaldo.jpg'
   }
 ]
+
+//Head
+const cabeza = document.querySelector ("head")
+const titleHead = document.querySelector ("title");
+titleHead.textContent = "ImgArt";
+
+const author = document.createElement ("meta");
+
+cabeza.appendChild (author)
+
+
+// Header
+const header = document.createElement ("header");
+document.body.appendChild (header);
+
+const title = document.createElement ("h1");
+title.textContent = "ImgArt"
+header.appendChild (title);
+
+
+// Main
+const page = document.createElement ("main");
+document.body.appendChild (page);
+
+const sectionFind = document.createElement ("section");
+page.appendChild (sectionFind);
+
+
+//Section Menu
+const categories = ["Naturaleza", "Urbano", "Animales", "Abstracto", "Deporte"];
+
+const nav = document.createElement ("nav");
+for (const categorie of categories) {
+  const ancord = document.createElement ("a");
+  ancord.textContent = categorie;
+  ancord.href = "#"
+
+  nav.appendChild (ancord);
+  sectionFind.appendChild (nav);
+}
+
+
+// Section Products
+const sectionProducts = document.createElement ("section");
+page.appendChild (sectionProducts);
+
+const listProducts = document.createElement ("ul");
+for (const product of products) {
+  const picture = document.createElement ("li");
+  const name = document.createElement ("h3");
+  const price = document.createElement ("p");
+  const image = document.createElement ("img");
+  const buy = document.createElement ("button");
+  const fav = document.createElement ("button");
+
+  name.textContent = product.name;
+  price.textContent = product.price;
+  image.src = product.image;
+  buy.textContent = "🛒"
+  fav.textContent = "❤️"
+
+  picture.appendChild (name);
+  picture.appendChild (price);
+  picture.appendChild (image);
+  picture.appendChild (buy)
+  listProducts.appendChild (picture);
+  sectionProducts.appendChild (listProducts);
+}
