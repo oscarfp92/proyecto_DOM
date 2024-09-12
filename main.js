@@ -113,15 +113,6 @@ const products = [
   }
 ]
 
-//Head
-const cabeza = document.querySelector ("head")
-const titleHead = document.querySelector ("title");
-titleHead.textContent = "ImgArt";
-
-const author = document.createElement ("meta");
-
-cabeza.appendChild (author)
-
 
 // Header
 const header = document.createElement ("header");
@@ -168,7 +159,7 @@ for (const product of products) {
   const fav = document.createElement ("button");
 
   name.textContent = product.name;
-  price.textContent = product.price;
+  price.textContent = product.price + `${" €"}`;
   image.src = product.image;
   buy.textContent = "🛒"
   fav.textContent = "❤️"
@@ -176,7 +167,18 @@ for (const product of products) {
   picture.appendChild (name);
   picture.appendChild (price);
   picture.appendChild (image);
-  picture.appendChild (buy)
+  picture.appendChild (buy);
+  picture.appendChild (fav);
   listProducts.appendChild (picture);
   sectionProducts.appendChild (listProducts);
+
+  // Añado clases para el CSS
+  picture.classList.add ("card");
+  image.classList.add ("image");
+  buy.classList.add ("buy");
+  fav.classList.add ("fav");
 }
+
+listProducts.classList.add ("gallery");
+sectionFind.classList.add ("categories");
+sectionProducts.classList.add ("products");
