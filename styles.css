@@ -1,13 +1,21 @@
 :root{
   --color_primary: rgb(250, 250, 239);
-  --color_secundary: rgb(228, 183, 187);
+  --color_secundary: rgb(245, 240, 240);
 }
 
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 16;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  transition: 1s;
+}
+
+header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 main {
@@ -37,7 +45,10 @@ nav{
   flex-wrap: wrap;
   list-style: none;
   text-align: center;
+  justify-content: center;
   padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
 }
 
 h3 {
@@ -49,8 +60,37 @@ h3 {
 }
 
 .image {
-  width: 290px;
+  width: 250px;
   border: 2px solid black;
   border-radius: 5px;
 }
 
+
+.fav{
+  background-color:transparent;
+  border: none;
+}
+.buy{
+  background-color:transparent;
+  border: none;
+}
+
+
+/*Efectos*/
+
+.dark {
+  background-color: rgb(71, 69, 69);
+  color: white;
+  transition: 1s;
+}
+
+li.dark {
+background-color: grey;
+transition: 1s;
+}
+
+.favzoom {
+  transform: scale(1.1);
+  font-size: 22px;
+  transition: 0.5s;
+}

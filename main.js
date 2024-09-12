@@ -21,7 +21,7 @@ const products = [
     stars: 4,
     reviews: 250,
     seller: 'ImgArt',
-    image: 'assets/images/fragments_2".jpg'
+    image: 'assets/images/fragments2.webp'
   },
   {
     name: 'Bicycle in front of building',
@@ -113,72 +113,92 @@ const products = [
   }
 ]
 
+// Header.
+const header = document.createElement('header')
+document.body.appendChild(header)
 
-// Header
-const header = document.createElement ("header");
-document.body.appendChild (header);
+const title = document.createElement('h1')
+title.textContent = 'ImgArt'
+header.appendChild(title)
 
-const title = document.createElement ("h1");
-title.textContent = "ImgArt"
-header.appendChild (title);
+const day = document.createElement('button')
+day.textContent = '🌙'
+header.appendChild(day)
 
+// Main.
+const page = document.createElement('main')
+document.body.appendChild(page)
 
-// Main
-const page = document.createElement ("main");
-document.body.appendChild (page);
+const sectionFind = document.createElement('section')
+page.appendChild(sectionFind)
 
-const sectionFind = document.createElement ("section");
-page.appendChild (sectionFind);
+//Section Menu.
+const categories = ['Naturaleza', 'Urbano', 'Animales', 'Abstracto', 'Deporte']
 
-
-//Section Menu
-const categories = ["Naturaleza", "Urbano", "Animales", "Abstracto", "Deporte"];
-
-const nav = document.createElement ("nav");
+const nav = document.createElement('nav')
 for (const categorie of categories) {
-  const ancord = document.createElement ("a");
-  ancord.textContent = categorie;
-  ancord.href = "#"
+  const ancord = document.createElement('a')
+  ancord.textContent = categorie
+  ancord.href = '#'
 
-  nav.appendChild (ancord);
-  sectionFind.appendChild (nav);
+  nav.appendChild(ancord)
+  sectionFind.appendChild(nav)
 }
 
+// Section Products.
+const sectionProducts = document.createElement('section')
+page.appendChild(sectionProducts)
 
-// Section Products
-const sectionProducts = document.createElement ("section");
-page.appendChild (sectionProducts);
-
-const listProducts = document.createElement ("ul");
+const listProducts = document.createElement('ul')
 for (const product of products) {
-  const picture = document.createElement ("li");
-  const name = document.createElement ("h3");
-  const price = document.createElement ("p");
-  const image = document.createElement ("img");
-  const buy = document.createElement ("button");
-  const fav = document.createElement ("button");
+  const picture = document.createElement('li')
+  const name = document.createElement('h3')
+  const price = document.createElement('p')
+  const image = document.createElement('img')
+  const buy = document.createElement('button')
+  const fav = document.createElement('button')
 
-  name.textContent = product.name;
-  price.textContent = product.price + `${" €"}`;
-  image.src = product.image;
-  buy.textContent = "🛒"
-  fav.textContent = "❤️"
+  name.textContent = product.name
+  price.textContent = product.price + `${' €'}`
+  image.src = product.image
+  buy.textContent = '🛒'
+  fav.textContent = '❤️'
 
-  picture.appendChild (name);
-  picture.appendChild (price);
-  picture.appendChild (image);
-  picture.appendChild (buy);
-  picture.appendChild (fav);
-  listProducts.appendChild (picture);
-  sectionProducts.appendChild (listProducts);
+  picture.appendChild(name)
+  picture.appendChild(price)
+  picture.appendChild(image)
+  picture.appendChild(buy)
+  picture.appendChild(fav)
+  listProducts.appendChild(picture)
+  sectionProducts.appendChild(listProducts)
 
-  // Añado clases para el CSS
-  picture.classList.add ("card");
-  image.classList.add ("image");
-  buy.classList.add ("buy");
-  fav.classList.add ("fav");
+  // Añado clases para el CSS.
+  picture.classList.add('card')
+  image.classList.add('image')
+  buy.classList.add('buy')
+  fav.classList.add('fav')
 }
 
-listProducts.classList.add ("gallery");
-sectionFind.classList.add ("categories");
-sectionProducts.classList.add ("products");
+listProducts.classList.add('gallery')
+sectionFind.classList.add('categories')
+sectionProducts.classList.add('products')
+
+// Añado eventos.
+
+//Modo noche
+const pictures = document.querySelectorAll (".card")
+day.addEventListener ("click", () => {
+  document.body.classList.toggle ("dark");
+  if (day.textContent === "🌙") {
+    day.textContent = "☀️"} 
+    else {day.textContent = "🌙"};
+  for (const picture of pictures) {
+    picture.classList.toggle ("dark");
+  }
+})
+
+//Zoom articulos
+const favoritos = document.querySelectorAll (".fav")
+for (const favorito of favoritos) {
+favorito.addEventListener ("click", () => {
+    favorito.classList.toggle ("favzoom")})}
