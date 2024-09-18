@@ -1,3 +1,5 @@
+// Array de objetos con los productos de la tienda.
+
 const products = [
   {
     name: 'Ámsterdam Canal',
@@ -93,7 +95,7 @@ const products = [
     stars: 4,
     reviews: 250,
     seller: 'ImgArt',
-    image: 'assets/images/roadtrip.jpg'
+    image: 'assets/images/michael_jordan.jpg'
   },
   {
     name: 'Orange Strokes-Ejaaz Haniff',
@@ -124,7 +126,7 @@ header.appendChild(title)
 const day = document.createElement('button')
 day.textContent = '🌙'
 header.appendChild(day)
-day.classList.add ('day')
+day.classList.add('day')
 
 // Main.
 const page = document.createElement('main')
@@ -133,7 +135,7 @@ document.body.appendChild(page)
 const sectionFind = document.createElement('section')
 page.appendChild(sectionFind)
 
-//Section Menu.
+// Menu.
 const categories = ['Naturaleza', 'Urbano', 'Animales', 'Abstracto', 'Deporte']
 
 const nav = document.createElement('nav')
@@ -146,7 +148,7 @@ for (const categorie of categories) {
   sectionFind.appendChild(nav)
 }
 
-// Section Products.
+// Products.
 const sectionProducts = document.createElement('section')
 page.appendChild(sectionProducts)
 
@@ -173,7 +175,6 @@ for (const product of products) {
   listProducts.appendChild(picture)
   sectionProducts.appendChild(listProducts)
 
-  // Añado clases para el CSS.
   picture.classList.add('card')
   image.classList.add('image')
   buy.classList.add('buy')
@@ -184,86 +185,90 @@ listProducts.classList.add('gallery')
 sectionFind.classList.add('categories')
 sectionProducts.classList.add('products')
 
-// Footer
-  const pies = ['Aviso Legal', 'Atención al cliente', 'Sobre nosotros', 'Sostenibilidad', 'Términos y condiciones']
-  const footer = document.createElement ('footer');
-  const ulFooter = document.createElement ('ul')
-  
-  
-  for (const pie of pies) {
-  const liFooter = document.createElement ('li');
+// Footer.
+const pies = [
+  'Aviso Legal',
+  'Atención al cliente',
+  'Sobre nosotros',
+  'Sostenibilidad',
+  'Términos y condiciones'
+]
+const footer = document.createElement('footer')
+const ulFooter = document.createElement('ul')
+
+for (const pie of pies) {
+  const liFooter = document.createElement('li')
   liFooter.textContent = pie
-  ulFooter.appendChild (liFooter)
+  ulFooter.appendChild(liFooter)
 }
 
+footer.appendChild(ulFooter)
+page.appendChild(footer)
 
-footer.appendChild (ulFooter)
-page.appendChild (footer)
-
-
-
-// Añado eventos.
+// AÑADIMOS EVENTOS.
 
 // Modo noche
-const pictures = document.querySelectorAll (".card")
-day.addEventListener ("click", () => {
-  document.body.classList.toggle ("dark");
-  if (day.textContent === "🌙") {
-    day.textContent = "☀️"} 
-    else {day.textContent = "🌙"};
+const pictures = document.querySelectorAll('.card')
+day.addEventListener('click', () => {
+  document.body.classList.toggle('dark')
+  if (day.textContent === '🌙') {
+    day.textContent = '☀️'
+  } else {
+    day.textContent = '🌙'
+  }
   for (const picture of pictures) {
-    picture.classList.toggle ("dark");
+    picture.classList.toggle('dark')
   }
 })
 
-const menus = document.querySelectorAll ("a");
-day.addEventListener ("click", () => {
-  for (const menu of menus){
-  menu.classList.toggle ("dark");
-}})
-
-const h1 = document.querySelector ("h1");
-day.addEventListener ("click", () => {
-  h1.classList.toggle ("dark");
+const menus = document.querySelectorAll('a')
+day.addEventListener('click', () => {
+  for (const menu of menus) {
+    menu.classList.toggle('dark')
+  }
 })
 
-const pie = document.querySelector ("footer");
-day.addEventListener ("click", () => {
-  footer.classList.toggle ("dark");
+const h1 = document.querySelector('h1')
+day.addEventListener('click', () => {
+  h1.classList.toggle('dark')
 })
 
+const pie = document.querySelector('footer')
+day.addEventListener('click', () => {
+  footer.classList.toggle('dark')
+})
 
 // Efecto botón fav
-const favoritos = document.querySelectorAll (".fav")
+const favoritos = document.querySelectorAll('.fav')
 for (const favorito of favoritos) {
-favorito.addEventListener ("click", () => {
-    favorito.classList.toggle ("favzoom")})};
-
-const carros = document.querySelectorAll (".buy")
-for (const carro of carros) {
-  carro.addEventListener ("click", () => 
-  carro.classList.toggle ("favzoom"))
+  favorito.addEventListener('click', () => {
+    favorito.classList.toggle('favzoom')
+  })
 }
 
+const carros = document.querySelectorAll('.buy')
+for (const carro of carros) {
+  carro.addEventListener('click', () => carro.classList.toggle('favzoom'))
+}
 
 // Ampliación de imágenes
-const div = document.createElement('div');
-div.classList.add ('zoomimage'); 
-document.body.appendChild(div);
+const div = document.createElement('div')
+div.classList.add('zoomimage')
+document.body.appendChild(div)
 
-const imageLarge = document.createElement('img');
-div.appendChild(imageLarge);
+const imageLarge = document.createElement('img')
+div.appendChild(imageLarge)
 
-const images = document.querySelectorAll (".image")
+const images = document.querySelectorAll('.image')
 for (const image of images) {
-  image.addEventListener("click", () => {
-  imageLarge.src = image.src;
-    div.classList.add("visible");
-  });
+  image.addEventListener('click', () => {
+    imageLarge.src = image.src
+    div.classList.add('visible')
+  })
 }
 
-div.addEventListener("click", (e) => {
+div.addEventListener('click', (e) => {
   if (e.target !== imageLarge) {
-    div.classList.remove("visible");
+    div.classList.remove('visible')
   }
-});
+})

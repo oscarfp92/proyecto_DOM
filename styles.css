@@ -11,7 +11,6 @@ body {
   transition: 1s;
   width: 100%;
   overflow-x: hidden;
-  min-width: 600px;
 }
 
 header{
@@ -31,7 +30,8 @@ h1{
   border: 1px solid black;
   border-radius: 2px;
   padding: 5px;
-  background-color: var(--color_primary)
+  background-color: var(--color_primary);
+  cursor: pointer
 }
 
 main {
@@ -103,17 +103,20 @@ h3 {
   width: 90%;
   border: 2px solid black;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .fav{
   background-color:transparent;
   font-size: medium;
   border: none;
+  cursor: pointer;
 }
 .buy{
   background-color:transparent;
   border: none;
   font-size: medium;
+  cursor: pointer;
 }
 
 footer {
@@ -169,35 +172,61 @@ footer.dark {
 
 
 /*Responsive mobile*/
-@media screen and (max-width: 361px) {
-
-  .categories {
-    display: none;
-  }
-  h3{
-    display: none;
-  }
-header {
+@media screen and (max-width: 376px) {
+header{
   justify-content: center;
-  gap: 30px
+  gap: 10px;
 }
 main{
-  justify-content: center;
-  min-width: 300px;
+  display: block;
+  width: 100%;
+  max-width: 375px;
+  padding: 0%;
+  margin: 0%;
 }
-.gallery{
-  min-width: 350px;
+.categories {
+  justify-content: center;
+  width: 90%;
+}
+
+nav{
+  display: block;
+  justify-content: center;
+  width: 100%;
+}
+
+a{
+  display: flex;
+  justify-content: center;
+  font-size: small;
+  line-height: 15px;
+  color: grey;
+}
+
+.products{
+  width: 100%
+}
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    width: 100%;;
+  }
+
+h3{
+  display: none;
 }
 footer ul{
-  display: block;
+display: block;
 }
+
+}
+
 .favzoom {
   transform: scale(1.1);
   font-size: 20px;
   transition: 0.5s;
 }
-}
-
 .zoomimage {
   display: none;
   position: fixed;
@@ -219,3 +248,4 @@ footer ul{
   max-height: 90%;
   border: 3px solid black
 }
+
